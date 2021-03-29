@@ -5,7 +5,7 @@ interface Props {
 const Logo = (props: Props) => {
     return (
         <div>
-            
+            Logo
         </div>
     )
 }
