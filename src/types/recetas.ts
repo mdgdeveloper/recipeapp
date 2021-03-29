@@ -1,3 +1,13 @@
+
+export enum Tipo {
+    Carne = 'Carne',
+    Pescado = 'Pescado',
+    Pasta = 'Pasta',
+    Verdura = 'Verdura',
+    Postre = 'Postre',
+    Caldos = 'Caldos'
+}
+
 export type Ingrediente = {
     nombre: string,
     cantidad: number,
@@ -17,4 +27,5 @@ export type Receta = {
     pasos: Paso[],
     tiempo: number,
     personas: number,
+    tipo: Tipo,
 }

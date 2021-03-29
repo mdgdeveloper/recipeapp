@@ -1,4 +1,4 @@
-import { Receta, Ingrediente, Paso } from "../types/recetas";
+import { Receta, Tipo } from "../types/recetas";
 export const data: Receta[] = [
   {
     id: 1,
@@ -31,6 +31,7 @@ export const data: Receta[] = [
       },
     ],
     tiempo: 30,
-    personas: 2
+    personas: 2,
+    tipo: Tipo.Pasta,
   },
 ];
