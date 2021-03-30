@@ -1,12 +1,16 @@
+import { Box, Text } from '@chakra-ui/react'; 
+
 interface Props {
     
 }
 
 const Logo = (props: Props) => {
     return (
-        <div>
-            Logo
-        </div>
+<Box {...props}>
+      <Text fontSize="lg" fontWeight="bold">
+        Logo
+      </Text>
+    </Box>
     )
 }
 
