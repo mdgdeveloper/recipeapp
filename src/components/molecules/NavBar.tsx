@@ -2,7 +2,7 @@ interface Props {
     
 }
 
-const HeaderMenuMobile = (props: Props) => {
+const NavBar = (props: Props) => {
     return (
         <div>
             
@@ -10,4 +10,4 @@ const HeaderMenuMobile = (props: Props) => {
     )
 }
 
-export default HeaderMenuMobile
+export default NavBar
