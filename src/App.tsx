@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 // ? Templates
-import Landing from './components/templates/Landing';
+import Landing from './pages/Landing';
 
 function App() {
   return (
