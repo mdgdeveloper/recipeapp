@@ -4,10 +4,11 @@ import { Stack } from '@chakra-ui/react';
 import MenuItem from '../atoms/Header/MenuItem';
 
 interface Props {
+    isOpen: boolean;
     
 }
 
-const MenuLinks = (props: Props) => {
+const MenuLinks = ({isOpen}: Props) => {
     return (
         <Stack
         spacing={8}

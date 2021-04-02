@@ -1,9 +1,18 @@
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+
+// ? Templates
+import Landing from './components/templates/Landing';
+
 function App() {
   return (
-
-    <div>
-      Server Running 
-    </div>
+    <Router>
+      <Switch>
+        <Route path='/'>
+          <Landing />
+        </Route>
+      </Switch>
+   
+    </Router>
   );
 }
 
