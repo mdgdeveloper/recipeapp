@@ -25,10 +25,9 @@ const Header = (props: Props) => {
             align='center'
             justify='space-between'
             wrap='wrap'
-            w='100%'
-            mb={8}
+            w='100%'      
             p={8}
-            bg={["green.500", "green.500", "transparent", "transparent"]}
+            bg={["green.500", "green.500", "green.500", "green.500"]}
         >
 
             <Flex align='center'>
@@ -51,7 +50,7 @@ const Header = (props: Props) => {
                 >
                     <MenuItem to="/">Home</MenuItem>
                     <MenuItem to="/how">How It works </MenuItem>
-                    <MenuItem to="/faetures">Features </MenuItem>
+                    <MenuItem to="/add">Add </MenuItem>
                     <MenuItem to="/pricing">Pricing </MenuItem>
                     <MenuItem to="/signup" isLast>
                         <Button

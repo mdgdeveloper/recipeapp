@@ -28,4 +28,5 @@ export type Receta = {
     tiempo: number,
     personas: number,
     tipo: Tipo,
+    imagen: string,
 }

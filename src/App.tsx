@@ -7,6 +7,9 @@ function App() {
   return (
     <Router>
       <Switch>
+        <Route path='/add'>
+          FUNCIONA!!!
+        </Route>
         <Route path='/'>
           <Landing />
         </Route>

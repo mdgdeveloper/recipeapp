@@ -1,4 +1,5 @@
 import LandingLayout from '../components/templates/LandingLayout';
+import Recipes from '../components/templates/Recipes';
 
 interface Props {
     
@@ -7,7 +8,7 @@ interface Props {
 const Landing = (props: Props) => {
     return (
         <LandingLayout>
-            test
+            <Recipes />
         </LandingLayout>
     )
 }
