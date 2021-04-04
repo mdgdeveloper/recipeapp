@@ -1,11 +1,14 @@
+import { Heading } from '@chakra-ui/react';
 interface Props {
-    
+    value: string;
 }
 
-export const Titulo = (props: Props) => {
+const Titulo = ({ value }: Props) => {
     return (
-        <div>
-            
-        </div>
+        <Heading>
+            {value}
+        </Heading>
     )
 }
+
+export default Titulo;

@@ -8,7 +8,7 @@ export enum Tipo {
     Caldos = 'Caldos'
 }
 
-export type Ingrediente = {
+export type IngredienteType = {
     nombre: string,
     cantidad: number,
     peso?: number,
@@ -23,7 +23,7 @@ export type Paso = {
 export type Receta = {
     id: number,
     nombre: string,
-    ingredientes: Ingrediente[];
+    ingredientes: IngredienteType[];
     pasos: Paso[],
     tiempo: number,
     personas: number,
