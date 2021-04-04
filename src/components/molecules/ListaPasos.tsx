@@ -1,12 +1,18 @@
+import { Paso } from '../../types/recetas';
+
+import PasoItem from '../atoms/Recipe/PasoItem';
+
+import { Box } from '@chakra-ui/react';
 interface Props {
+    pasos: Paso[];
     
 }
 
-const ListaPasos = (props: Props) => {
+const ListaPasos = ({ pasos }: Props) => {
     return (
-        <div>
-            
-        </div>
+        <Box>
+        {pasos.map( paso => <PasoItem value={paso} />)} 
+     </Box>
     )
 }
 
