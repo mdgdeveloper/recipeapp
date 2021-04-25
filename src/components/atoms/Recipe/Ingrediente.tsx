@@ -11,9 +11,13 @@ const Ingrediente = ({ ingrediente }: Props) => {
     return (
         <Flex
             p={3}
-            borderColor='black'
-            borderWidth='1px'
-            mb={1}
+            mb={4}
+            borderRadius={10}
+            bg='#e6ffd9'
+            pt={4}
+            pb={4}
+            color='#4f4842'
+            
         >
             <Box
 
@@ -22,7 +26,7 @@ const Ingrediente = ({ ingrediente }: Props) => {
             </Box>
             <Box
                 mr={1}
-            >{ingrediente.nombre}</Box>
+            >{ingrediente.ingrediente.nombre}</Box>
             {ingrediente.peso
                 ?
                 <Box

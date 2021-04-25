@@ -7,10 +7,11 @@ import { Flex, Box, Text } from '@chakra-ui/react';
 interface Props {
 
     value: Paso;
+    orden: number;
 
 }
 
-const PasoItem = ({ value }: Props) => {
+const PasoItem = ({ value, orden }: Props) => {
     return (
         <Flex
         align='center'
@@ -19,12 +20,12 @@ const PasoItem = ({ value }: Props) => {
             p={2}
             ><Text
             fontSize="3xl"
-            >{value.orden}</Text></Box>
+            >{orden + 1}</Text></Box>
             <Box
             p={2}
             
             >
-                {value.descripcion}
+                {value}
             </Box>
         </Flex>
     )

@@ -14,19 +14,11 @@ import ListaIngredientes from './ListaIngredientes';
 import ListaPasos from './ListaPasos';
 import InfoReceta from './InfoReceta';
 
-// Esta importacion es como ejemplo
-import { data } from '../../data/recipes';
-
-// TODO Add to props the data imported to Recipe.
-
 interface Props {
-
+    receta: Receta;
 }
 
-// Modelo de ejemplo {BORRAR}
-const receta: Receta = data[0];
-
-const Recipe = (props: Props) => {
+const Recipe = ({ receta }: Props) => {
     return (
 
         <Flex
@@ -52,21 +44,23 @@ const Recipe = (props: Props) => {
                 <Box
                     align='center'
                     w={['100%', '100%', '100%', '60%']}
+                    
 
                 >
                     <Imagen img={receta.imagen} />
                 </Box>
                 <Box
                     p={2}
-                    bg='white'
                     w={['100%', '100%', '100%', '38%']}
 
                 >
                     <ListaIngredientes ingredientes={receta.ingredientes} />
                 </Box>
             </Flex>
-            <Box>
-                Pasos
+            <Box
+            mt={3}
+            
+            >
                 <ListaPasos pasos={receta.pasos} />
             </Box>
         </Flex>

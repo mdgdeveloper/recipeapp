@@ -9,7 +9,12 @@ export enum Tipo {
 }
 
 export type IngredienteType = {
-    nombre: string,
+    ingrediente: {
+        nombre: string,
+        cal: number,
+        precioUnidad: boolean,
+        precio: number
+    }
     cantidad: number,
     peso?: number,
 }

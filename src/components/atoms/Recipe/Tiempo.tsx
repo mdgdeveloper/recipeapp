@@ -19,7 +19,7 @@ const Tiempo = ({ time }: Props) => {
             mt={2}
             bg='#abede5'
             borderRadius={15}
-            w='90px'
+            w='100px'
         
         >
             <Box><TimeIcon w={8} h={8} color='#4f4842'/></Box>
