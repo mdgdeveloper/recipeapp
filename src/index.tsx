@@ -7,6 +7,19 @@ import reportWebVitals from './reportWebVitals';
 import { ApolloProvider } from '@apollo/client/react';
 import { ApolloClient, InMemoryCache } from '@apollo/client';
 
+// Theme for ChakraProvider
+import { extendTheme } from '@chakra-ui/react';
+import "@fontsource/ubuntu/400.css";
+import "@fontsource/open-sans/700.css";
+
+// Custom values for Extended Theme: will apply for everyone.
+const theme = extendTheme({
+  fonts:{
+    heading: "Ubuntu",
+    body: "Ubuntu",
+  },
+});
+
 const client = new ApolloClient({
   uri: 'http://localhost:4000/graphql',
   cache: new InMemoryCache()
@@ -17,7 +30,7 @@ const client = new ApolloClient({
 
 ReactDOM.render(
   <ApolloProvider client={client}>
-  <ChakraProvider>
+  <ChakraProvider theme={theme}>
     <React.StrictMode>
       <App />
     </React.StrictMode>

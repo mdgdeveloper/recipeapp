@@ -12,7 +12,7 @@ const LandingLayout = ({children}: Props) => {
         <Flex
             direction='column'
             align='center'
-            maxW={{ xl: "1200px" }}
+            maxW={{ xl: "1000px" }}
             m='0 auto'
         >
             <Header />
