@@ -1,6 +1,5 @@
 import { IngredienteType } from '../../../types/recetas';
 import { SmallCloseIcon } from '@chakra-ui/icons';
-import { GiWeight } from 'react-icons/gi'
 
 import { Flex, Box, Icon } from '@chakra-ui/react';
 interface Props {
@@ -32,7 +31,7 @@ const Ingrediente = ({ ingrediente }: Props) => {
                 <Box
                     mr={1}
                 >
-                    | {ingrediente.peso} gramos <Icon as={GiWeight} /></Box>
+                    | {ingrediente.peso} gramos </Box>
                 : <Box></Box>
 
             }

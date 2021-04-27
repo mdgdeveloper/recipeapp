@@ -5,7 +5,7 @@ interface Props {
 
 const Titulo = ({ value }: Props) => {
     return (
-        <Heading>
+        <Heading as='h1' size="xl" fontWeight='bold' letterSpacing={-1}>
             {value}
         </Heading>
     )

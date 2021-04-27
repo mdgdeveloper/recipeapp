@@ -15,7 +15,7 @@ const LandingLayout = ({children}: Props) => {
             maxW={{ xl: "1000px" }}
             m='0 auto'
         >
-            <Header />
+            
             {children}
         </Flex>
     )

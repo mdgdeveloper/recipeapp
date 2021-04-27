@@ -11,28 +11,18 @@ const Personas = ({ numero }: Props) => {
 
     return (
 <Flex
-            direction='column'
-            align='center'
-            pb={3}
-            pt={3}
-            pl={5}
-            pr={5}
-            mt={2}
-            bg='#caf5b3'
-            borderRadius={15}
-            w='90px'
-        
-        >
-            <Box><Icon as={GoPerson} w={8} h={8} color='#4f4842'/></Box>
-            <Box
-            mt={2}
-            color='#4f4842'
-            >{numero}</Box>
-
-            
-
-    
-        </Flex>
+        direction='column'
+        m={0}
+        mr={8}
+    >
+        <Box fontSize={15} m={0} letterSpacing={-1}>Personas</Box>
+        <Box
+            fontSize={23}
+            p={0}
+            mt={-2}
+            letterSpacing={-1}
+        >{numero}</Box>
+    </Flex>
     )
 }
 

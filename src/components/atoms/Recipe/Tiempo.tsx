@@ -11,27 +11,21 @@ const Tiempo = ({ time }: Props) => {
     return (
         <Flex
             direction='column'
-            align='center'
-            pb={3}
-            pt={3}
-            pl={5}
-            pr={5}
-            mt={2}
-            bg='#abede5'
-            borderRadius={15}
-            w='100px'
-        
+            m={0}
+            mr={8}
         >
-            <Box><TimeIcon w={8} h={8} color='#4f4842'/></Box>
+            <Box fontSize={15} m={0} letterSpacing={-1}>Duración</Box>
             <Box
-            mt={2}
-            color='#4f4842'
+                fontSize={23}
+                p={0}
+                mt={-2}
+                letterSpacing={-1}
             >{time} min</Box>
+        </Flex>
 
             
 
-    
-        </Flex>
+
     )
 }
 

@@ -25,6 +25,7 @@ const Recipe = ({ receta }: Props) => {
             w='100%'
             direction='column'
             wrap='wrap'
+            mt={8}
         >
             <Box
                 textAlign='justify'

@@ -1,41 +1,25 @@
 import { Tipo } from '../../../types/recetas'
-import { Flex, Box, Icon } from '@chakra-ui/react';
-import { FaInfo } from 'react-icons/fa';
+import { Flex, Box } from '@chakra-ui/react';
 
 interface Props {
     tipoComida: Tipo,
-    
+
 }
 
 const TipoComida = ({ tipoComida }: Props) => {
 
-    const iconoComida = ( tipo: Tipo ) => {
-
-    }
-
     return (
-<Flex
+        <Flex
             direction='column'
-            align='center'
-            pb={3}
-            pt={3}
-            pl={5}
-            pr={5}
-            mt={2}
-            bg='#f2d7ac'
-            borderRadius={15}
-            w='90px'
-        
+            mr={8}
         >
-            <Box><Icon as={FaInfo} w={8} h={8} color='#4f4842'/></Box>
+            <Box fontSize={15} m={0} letterSpacing={-1}>Tipo</Box>
             <Box
-            mt={2}
-            color='#4f4842'
+                fontSize={23}
+                p={0}
+                mt={-2}
+                letterSpacing={-1}
             >{tipoComida}</Box>
-
-            
-
-    
         </Flex>
     )
 }

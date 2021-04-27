@@ -9,14 +9,17 @@ import { ApolloClient, InMemoryCache } from '@apollo/client';
 
 // Theme for ChakraProvider
 import { extendTheme } from '@chakra-ui/react';
-import "@fontsource/ubuntu/400.css";
-import "@fontsource/open-sans/700.css";
+import "@fontsource/montserrat/400.css";
+import "@fontsource/montserrat/700.css";
 
 // Custom values for Extended Theme: will apply for everyone.
 const theme = extendTheme({
   fonts:{
-    heading: "Ubuntu",
-    body: "Ubuntu",
+    heading: "Montserrat",
+    body: "Montserrat",
+  },
+  background:{
+    body: "#f9f8f4",
   },
 });
 
