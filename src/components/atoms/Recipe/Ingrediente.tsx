@@ -1,5 +1,5 @@
 import { IngredienteType } from '../../../types/recetas';
-import { SmallCloseIcon } from '@chakra-ui/icons';
+import { BiRightArrowCircle } from 'react-icons/bi';
 
 import { Flex, Box, Icon } from '@chakra-ui/react';
 interface Props {
@@ -9,32 +9,30 @@ interface Props {
 const Ingrediente = ({ ingrediente }: Props) => {
     return (
         <Flex
-            p={3}
-            mb={4}
-            borderRadius={10}
-            bg='#e6ffd9'
-            pt={4}
-            pb={4}
             color='#4f4842'
-            
+            alignItems='center'
+            pt={1}
+            pb={1}
         >
+            <Flex
+            
+            >
             <Box
-
-            >{ingrediente.cantidad}
-                <SmallCloseIcon />
+            mr={2}
+            
+            ><Icon as={BiRightArrowCircle} color='green.600'/></Box>
+            <Box
+            >{ingrediente.peso
+                ? <Box> {ingrediente.peso} gramos </Box>
+                : <Box> {ingrediente.cantidad} </Box>}
             </Box>
+            
+                
             <Box
+                ml={1}
                 mr={1}
             >{ingrediente.ingrediente.nombre}</Box>
-            {ingrediente.peso
-                ?
-                <Box
-                    mr={1}
-                >
-                    | {ingrediente.peso} gramos </Box>
-                : <Box></Box>
-
-            }
+             </Flex>
         </Flex>
     )
 }

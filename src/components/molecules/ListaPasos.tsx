@@ -10,8 +10,10 @@ interface Props {
 
 const ListaPasos = ({ pasos }: Props) => {
     return (
-        <Box>
-         <Heading  as="h2" size="md">Lista de pasos</Heading>
+        <Box 
+        mb={10}
+        >
+         <Heading  as="h2" size="lg" mb={2}>Receta</Heading>
         {pasos.map( (paso, index) => <PasoItem value={paso} orden={index} />)} 
      </Box>
     )

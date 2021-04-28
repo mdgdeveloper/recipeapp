@@ -1,7 +1,5 @@
 import {Flex, Box } from '@chakra-ui/react';
 
-import { TimeIcon } from '@chakra-ui/icons';
-
 interface Props {
     time: number,
     

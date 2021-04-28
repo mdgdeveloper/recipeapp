@@ -17,13 +17,13 @@ const PasoItem = ({ value, orden }: Props) => {
         align='center'
         >
             <Box
-            p={2}
+            p={1}
             ><Text
-            fontSize="3xl"
+            fontSize="2xl"
+            fontWeight="bold"
             >{orden + 1}</Text></Box>
             <Box
             p={2}
-            
             >
                 {value}
             </Box>

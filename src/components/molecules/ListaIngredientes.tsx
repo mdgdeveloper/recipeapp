@@ -13,8 +13,11 @@ interface Props {
 const ListaIngredientes = ({ ingredientes }: Props) => {
 
     return (
-        <Box>
-            <Heading  as="h2" size="md" pb={3}>Lista de ingredientes</Heading>
+        <Box
+        bgColor='#f1eee7'
+        p={8}
+        >
+            <Heading  as="h2" size="lg" pb={3} >Ingredientes</Heading>
             {ingredientes.map((ingrediente, key) => {
                 return (<Box key={key}><Ingrediente ingrediente={ingrediente} /></Box>);
             })}

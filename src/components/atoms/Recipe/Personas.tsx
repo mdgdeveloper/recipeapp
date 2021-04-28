@@ -1,6 +1,4 @@
-import { Flex, Box, Icon } from '@chakra-ui/react';
-import { GoPerson } from 'react-icons/go';
-
+import { Flex, Box } from '@chakra-ui/react';
 interface Props {
     numero: Number,
     

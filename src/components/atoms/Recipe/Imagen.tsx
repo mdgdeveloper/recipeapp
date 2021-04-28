@@ -7,7 +7,7 @@ interface Props {
 
 const Imagen = ({ img }: Props) => {
     return (
-        <Image borderRadius={25} src={img} alt="Recipe Image" w='100%'/>
+        <Image  src={img} alt="Recipe Image" w='100%'/>
     )
 }
 

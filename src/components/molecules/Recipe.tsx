@@ -1,5 +1,5 @@
 
-import { Box, Center } from '@chakra-ui/react';
+import { Box } from '@chakra-ui/react';
 
 import { Receta } from '../../types/recetas';
 import { Flex } from '@chakra-ui/react';
@@ -43,24 +43,18 @@ const Recipe = ({ receta }: Props) => {
                 w='100%'
             >
                 <Box
-                    align='center'
                     w={['100%', '100%', '100%', '60%']}
-                    
-
                 >
                     <Imagen img={receta.imagen} />
                 </Box>
                 <Box
-                    p={2}
                     w={['100%', '100%', '100%', '38%']}
-
                 >
                     <ListaIngredientes ingredientes={receta.ingredientes} />
                 </Box>
             </Flex>
             <Box
-            mt={3}
-            
+            mt={10}
             >
                 <ListaPasos pasos={receta.pasos} />
             </Box>

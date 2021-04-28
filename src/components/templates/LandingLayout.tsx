@@ -1,7 +1,7 @@
 import { Flex } from '@chakra-ui/react';
 
 // ? ORGANISMS
-import Header from '../organisms/Header';
+// import Header from '../organisms/Header';
 
 interface Props {
     children?: JSX.Element | string,
