@@ -1,4 +1,4 @@
-import React from 'react'
+import { Box, Input } from '@chakra-ui/react';
 
 interface Props {
 
@@ -7,9 +7,14 @@ interface Props {
 
 const Entrada = (props: Props) => {
     return (
-        <div>
+        <Box
+        
+        >
+            <Input 
+            w='100%'
             
-        </div>
+            />   
+        </Box>
     )
 }
 

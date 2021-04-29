@@ -20,7 +20,6 @@
 - [ ] Process behind Form to CreateRecipe
 - [ ] CreateIngredient.tsx
 - [ ] EditRecipe.tsx
-* 
 
 # Ideas
 List of ingredients => Checkbox.

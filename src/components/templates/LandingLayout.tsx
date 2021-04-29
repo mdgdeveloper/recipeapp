@@ -14,6 +14,7 @@ const LandingLayout = ({children}: Props) => {
             align='center'
             maxW={{ xl: "1000px" }}
             m='0 auto'
+            flexBasis='auto'
         >
             
             {children}

@@ -20,3 +20,5 @@ const ListaPasos = ({ pasos }: Props) => {
 }
 
 export default ListaPasos
+
+

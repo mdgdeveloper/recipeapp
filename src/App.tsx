@@ -21,15 +21,15 @@ function App() {
   return (
     <Router>
       <Switch>
-        <Route path='/add'>
-          FUNCIONA!!!
+        <Route path='/admin'>
+          <Landing type='admin' />
         </Route>
         <Route path='/receta/:id'>
         
         <RecetaId />
         </Route>
         <Route path='/'>
-          <Landing />
+          <Landing type="mainpage"/>
         </Route>
       </Switch>
    
