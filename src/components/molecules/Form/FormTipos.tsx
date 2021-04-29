@@ -13,6 +13,8 @@ const FormTipos = (props: Props) => {
     const [tipoSelected, setTipoSelected] = useState<Tipo>();
 
 
+
+
     return (
         <Flex
         mt={6}

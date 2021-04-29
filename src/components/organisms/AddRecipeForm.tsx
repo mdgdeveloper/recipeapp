@@ -1,4 +1,4 @@
-import { Box, Flex } from '@chakra-ui/react';
+import { Box, Flex, Button } from '@chakra-ui/react';
 
 // Form Import Molecules
 import FormNombre from '../molecules/Form/FormNombre';
@@ -20,18 +20,21 @@ const AddRecipeForm = (props: Props) => {
             w='90%'
 
         >
-            <Flex
-            flexDirection='column'
-            >
-                <FormNombre />
-                <FormTipos />
-                <Flex>
-                    <FormTiempo />
-                    <FormPersonas />
+            <form>
+                <Flex
+                    flexDirection='column'
+                >
+                    <FormNombre />
+                    <FormTipos />
+                    <Flex>
+                        <FormTiempo />
+                        <FormPersonas />
+                    </Flex>
+                    <FormIngredientes />
+                    <FormPasos />
                 </Flex>
-                <FormIngredientes />
-                <FormPasos />
-            </Flex>
+                <Button colorScheme="blue">Enviar</Button>
+            </form>
         </Box>
     )
 }

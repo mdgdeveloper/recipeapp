@@ -1,5 +1,6 @@
 import { Box, Flex } from '@chakra-ui/react';
 import { Tipo } from '../../../types/recetas';
+import TipoElement from '../../atoms/Form/TipoElement';
 
 interface Props {
     setTipoSelected: (tipos:Tipo) => void;
@@ -18,10 +19,7 @@ const ListaTipo = (props: Props) => {
         <Flex>
             <Box></Box>
             {ListaTipos.map(tipo => (
-                <Box
-                p={5}
-                
-                >{tipo}</Box>
+                <TipoElement tipoValue={tipo} />
             ))}
         </Flex>
     )
