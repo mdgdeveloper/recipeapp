@@ -1,27 +1,36 @@
-import {Box} from '@chakra-ui/react';
-import { useState } from 'react';
+import {Box, Button} from '@chakra-ui/react';
+import { Tipo } from '../../../types/recetas';
+import { useState, useEffect } from 'react';
 import './TipoElement.style.css';
 
 interface Props {
-    tipoValue: string;
+    tipoValue: Tipo;
+    tipoSelected: Tipo | undefined;
+    setTipoSelected: (tipo: Tipo) => void;
     
 }
 
-const TipoElement = ({ tipoValue }: Props) => {
-    const [style, setStyle] = useState<string>("tipo");
+const TipoElement = ({ tipoValue, tipoSelected, setTipoSelected }: Props) => {
+    const [style, setStyle] = useState<string>("blue");
+   
+   useEffect(()=>{
+        if(tipoSelected===tipoValue){
+            setStyle('red');
+        }else{
+            setStyle('blue');
+        }
+
+    },[tipoSelected, tipoValue])
 
     const selected = () => {
-        setStyle("tipo-selected")
+        setTipoSelected(tipoValue);
     }
 
+
     return (
-<Box
-                p={5}
-                cursor='pointer'
-                mr={2}
-                className={style}
+                <Button colorScheme={style}
                 onClick={()=>selected()}
-                >{tipoValue}</Box>
+                >{tipoValue}</Button>
     )
 }
 

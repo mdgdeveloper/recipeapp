@@ -1,6 +1,7 @@
 import { Box, Flex } from '@chakra-ui/react';
 import { Tipo } from '../../../types/recetas';
 import TipoElement from '../../atoms/Form/TipoElement';
+import {useState} from 'react';
 
 interface Props {
     setTipoSelected: (tipos:Tipo) => void;
@@ -8,18 +9,23 @@ interface Props {
 }
 
 const ListaTipo = (props: Props) => {
+    const [tipoSelected, setTipoSelected] = useState<Tipo>();
 
-    const ListaTipos = [];
+    const ListaTipos: Tipo[] = [];
     for (let value in Tipo) {
-        ListaTipos.push(value);
+        const iter : Tipo = Tipo[value as keyof typeof Tipo]; 
+        ListaTipos.push(iter);
     }
 
 
     return (
-        <Flex>
-            <Box></Box>
+        <Flex
+        gap={2}
+        >
             {ListaTipos.map(tipo => (
-                <TipoElement tipoValue={tipo} />
+                <TipoElement tipoValue={tipo} 
+                tipoSelected={tipoSelected} 
+                setTipoSelected={setTipoSelected}/>
             ))}
         </Flex>
     )
