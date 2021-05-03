@@ -20,13 +20,18 @@ const ListaTipo = (props: Props) => {
 
     return (
         <Flex
-        gap={2}
+            mb={10}
         >
             {ListaTipos.map(tipo => (
+                <Box
+                marginRight={2}
+                >
                 <TipoElement tipoValue={tipo} 
                 tipoSelected={tipoSelected} 
                 setTipoSelected={setTipoSelected}/>
+                </Box>
             ))}
+
         </Flex>
     )
 }

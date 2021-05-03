@@ -35,3 +35,9 @@ export type Receta = {
     tipo: Tipo,
     imagen: string,
 }
+
+
+export type IngredienteForm = {
+    nombre: string;
+    cantidad: number;
+}
