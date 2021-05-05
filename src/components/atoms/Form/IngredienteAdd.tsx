@@ -4,14 +4,14 @@ import { AddIcon } from "@chakra-ui/icons";
 interface Props {
 
     ingrediente: string;
-    setNewIngredient: (ingrediente: string) => void;
+    addIngredientFromList: (ingrediente: string) => void;
 
 }
 
-const IngredienteAdd = ({ ingrediente, setNewIngredient }: Props) => {
+const IngredienteAdd = ({ ingrediente, addIngredientFromList }: Props) => {
     
     const addIngredient = () =>{
-        setNewIngredient(ingrediente);
+        addIngredientFromList(ingrediente);
     } 
     
     return (

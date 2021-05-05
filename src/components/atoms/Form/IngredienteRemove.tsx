@@ -1,24 +1,52 @@
-import { Box, ButtonGroup, Button, IconButton } from '@chakra-ui/react';
-import { DeleteIcon } from "@chakra-ui/icons";
+import { useState } from 'react';
+import { Box, Flex, Select, Input, IconButton } from '@chakra-ui/react';
+import { SmallCloseIcon } from '@chakra-ui/icons';
 
 import { IngredienteForm } from '../../../types/recetas';
 interface Props {
     ingrediente: IngredienteForm;
+    removeIngredient: (ingredient: IngredienteForm) => void;
 }
 
-const IngredienteRemove = ({ingrediente}: Props) => {
+const IngredienteRemove = ({ ingrediente, removeIngredient }: Props) => {
+    const [numeric, setNumeric] = useState<number>();
+    const [pesoSelected, setPesoSelected] = useState<boolean>(false);
+
+    const handleNumericValue = (event: React.ChangeEvent<HTMLInputElement>) => {
+        const value: number = +event.target.value;
+        setNumeric(value);
+    }
+
+    const handlePesoSelected = (event: React.ChangeEvent<HTMLSelectElement>) => {
+        setPesoSelected(event.target.value === "unidades" ? false : true); 
+    }
+
     return (
-        <ButtonGroup 
-        onClick={()=>{console.log('test')}}
-        size="sm" isAttached variant="outline" mr={3} mb={3}>
-            <Button bg='blue.300' mr="-px"         
-            >{ingrediente.nombre}</Button>
-             <Button bg='blue.100' mr="-px"         
-            >{ingrediente.cantidad}</Button>
-             <IconButton 
-             bg='red.200'
-             aria-label="Add ingrediente" icon={<DeleteIcon />} />
-        </ButtonGroup>
+
+        <Flex
+            mb={2}
+            mt={2}
+            w='100%'
+        ><IconButton
+                onClick={() => removeIngredient(ingrediente)}
+                bg='red.400' mr={2} 
+                color='white' 
+                aria-label="Add ingredient" 
+                icon={<SmallCloseIcon />} />
+            <Box mr={3} p={2} borderRadius={5} bg='green.300' fontWeight='bold'>{ingrediente.nombre}</Box>
+
+            <Input w='10%' mr={3} onChange={handleNumericValue}/>
+            <Select
+                w='20%'
+                mr={2}
+                onChange={handlePesoSelected}
+            >
+                <option value="unidades" selected>unidades</option>
+                <option value="peso">gramos</option>
+            </Select>
+
+        </Flex>
+
     )
 }
 

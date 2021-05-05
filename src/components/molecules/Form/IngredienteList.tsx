@@ -4,19 +4,18 @@ import { Flex } from '@chakra-ui/react';
 
 interface Props {
     lista: string[];
-    setIngredientToAdd: (ingrediente: string ) => void;
+    removeIngredientFromList: (ingredient: string) => void;
+    addIngredient: (ingrediente: string ) => void;
+
 }
 
 
-const IngredienteList = ({ lista, setIngredientToAdd }: Props) => {
-    const [listaUpdated, setListaUpdated] = useState<string[]>(lista);
-    const [newIngredient, setNewIngredient] = useState<string>();
- 
-    useEffect(()=>{
-        const newLista = listaUpdated.filter( elemento => elemento !== newIngredient );
-        setListaUpdated(newLista);
-
-    },[newIngredient, listaUpdated])
+const IngredienteList = ({ lista, addIngredient, removeIngredientFromList }: Props) => {
+        const addIngredientFromList = (ingredient: string) => {
+            removeIngredientFromList(ingredient);
+            addIngredient(ingredient);
+        
+    }
 
 
 
@@ -26,9 +25,9 @@ const IngredienteList = ({ lista, setIngredientToAdd }: Props) => {
         flexWrap='wrap'
         flexGap={2}
         >
-            {listaUpdated.map( ingrediente =>  <IngredienteAdd 
+            {lista.map( ingrediente =>  <IngredienteAdd 
             ingrediente={ingrediente} 
-            setNewIngredient={setNewIngredient} 
+            addIngredientFromList={addIngredientFromList} 
             /> )}
         </Flex>
     )
