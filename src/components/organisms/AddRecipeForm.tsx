@@ -7,6 +7,7 @@ import FormPersonas from '../molecules/Form/FormPersonas';
 import FormTipos from '../molecules/Form/FormTipos';
 import FormIngredientes from '../molecules/Form/FormIngredientes';
 import FormPasos from '../molecules/Form/FormPasos';
+import FormImagen from '../molecules/Form/FormImagen';
 
 
 interface Props {
@@ -32,6 +33,7 @@ const AddRecipeForm = (props: Props) => {
                     </Flex>
                     <FormIngredientes />
                     <FormPasos />
+                    <FormImagen />
                 </Flex>
                 <Button colorScheme="blue">Enviar</Button>
             </form>

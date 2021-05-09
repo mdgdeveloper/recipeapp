@@ -41,8 +41,9 @@ const IngredienteRemove = ({ ingrediente, removeIngredient }: Props) => {
                 mr={2}
                 onChange={handlePesoSelected}
             >
-                <option value="unidades" selected>unidades</option>
-                <option value="peso">gramos</option>
+                <option value="peso" selected>gramos</option>
+                <option value="unidades">unidades</option>
+                
             </Select>
 
         </Flex>
