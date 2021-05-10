@@ -6,14 +6,10 @@ import { Tipo } from '../../../types/recetas';
 import ListaTipo from './ListaTipo';
 
 interface Props {
-    
+    setTipo: (tipo: Tipo) => void;
 }
 
-const FormTipos = (props: Props) => {
-    const [tipoSelected, setTipoSelected] = useState<Tipo>();
-
-
-
+const FormTipos = ({ setTipo }: Props) => {
 
     return (
         <Flex
@@ -21,7 +17,7 @@ const FormTipos = (props: Props) => {
         flexDirection='column'
         textAlign='left'>
             <Box>Escoge tipo</Box>
-            <ListaTipo setTipoSelected={setTipoSelected}/>      
+            <ListaTipo setTipo={setTipo}/>      
         </Flex>
     )
 }

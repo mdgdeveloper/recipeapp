@@ -5,10 +5,11 @@ import IngredienteRemove from '../../atoms/Form/IngredienteRemove';
 interface Props {
     lista: IngredienteForm[] | undefined;
     removeIngredient: (ingredient: IngredienteForm) => void;
+    editIngredient: (ingredient: IngredienteForm) => void;
     
 }
 
-const IngredienteListAdded = ({ lista, removeIngredient }: Props) => {
+const IngredienteListAdded = ({ lista, removeIngredient, editIngredient }: Props) => {
 
     // Funcion remove Ingredient
     // La funcion inclutye eliminar si es 0 o reducir su valor. 
@@ -26,7 +27,7 @@ const IngredienteListAdded = ({ lista, removeIngredient }: Props) => {
             {lista ? lista.map( (ingredienteLista:IngredienteForm) => {
                 
                 return(
-                    <IngredienteRemove ingrediente={ingredienteLista} removeIngredient={removeIngredient}/>
+                    <IngredienteRemove ingrediente={ingredienteLista} removeIngredient={removeIngredient} editIngredient={editIngredient} />
                 );
             }): <></>}
         </Flex>

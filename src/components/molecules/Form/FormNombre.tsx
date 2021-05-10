@@ -2,10 +2,11 @@ import { Box, Flex } from '@chakra-ui/react';
 import Entrada from '../../atoms/Form/Entrada';
 
 interface Props {
+    setNombre: (nombre: string) => void;
     
 }
 
-const FormNombre = (props: Props) => {
+const FormNombre = ({ setNombre }: Props) => {
     return (
         <Flex
         flexDirection='column'
@@ -13,7 +14,7 @@ const FormNombre = (props: Props) => {
         w='100%'
         >
             <Box>Nombre</Box>
-            <Entrada />
+            <Entrada setNombre={setNombre}/>
             
         </Flex>
     )

@@ -2,12 +2,11 @@ import { Flex, Box, Button } from '@chakra-ui/react';
 import { useState } from 'react';
 import Paso from '../../atoms/Form/Paso';
 interface Props {
-    
+    pasos: string[];
+    setPasos: (pasos: string[]) => void;    
 }
 
-const FormPasos = (props: Props) => {
-    // bloque de pasos almacenados (no se si es necesario)
-    const [pasos, setPasos] = useState<string[]>([]);
+const FormPasos = ({ pasos, setPasos }: Props) => {
     // Paso introducido en ese momento. 
     const [idActual, setIdActual] = useState<number>(0);
     // Inputs

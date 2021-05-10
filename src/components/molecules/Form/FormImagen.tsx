@@ -1,5 +1,4 @@
-import { Box, Input } from '@chakra-ui/react';
-import axios from 'axios';
+import { Box, Flex, Input, Button } from '@chakra-ui/react';
 
 interface Props {
     
@@ -7,6 +6,10 @@ interface Props {
 
 const FormImagen = (props: Props) => {
 
+    const sendImage = () => {
+
+    }    
+    
     const mostrarCambio = (event: React.ChangeEvent<HTMLInputElement>) =>{
         const files = event.target.files;
         if(files){
@@ -15,18 +18,32 @@ const FormImagen = (props: Props) => {
     }
 
     return (
+        <Box>
         <Box
-            textAlign="left"
-
+            textAlign='left'
+            mb={2}
         >
-            Escoge una imagen para cargar:
+        Escoge una imagen para cargar:
+        </Box>
+        <form
+            onSubmit={sendImage} 
+        >
+        <Flex
+            align="center"
+            mr={5}
+        >
             <Input 
-                mt={3}
-                mb={5}
+            mr={2}
                 type='file'
                 placeholder='Escoge una imagen para cargar'
                 onChange={mostrarCambio}
-            />            
+            />
+            
+            <Button type='submit'>
+                Subir
+            </Button>      
+        </Flex>
+        </form>
         </Box>
     )
 }

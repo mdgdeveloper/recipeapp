@@ -17,6 +17,7 @@ const Paso = ({ id, pasos, setPasos }: Props) => {
 
     }
 
+    console.log('id actual:', id);
 
     return (
         <Flex>
