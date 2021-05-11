@@ -1,49 +1,47 @@
 import { Box, Flex, Input, Button } from '@chakra-ui/react';
 
+import { useApolloClient, useMutation, gql } from '@apollo/client';
+
+const UPLOAD_FILE = gql`
+    mutation uploadFile($file: FileUpload!){
+        uploadFile(file: $file){
+            url
+        }
+    }
+`;
+
 interface Props {
-    
+
 }
 
 const FormImagen = (props: Props) => {
 
-    const sendImage = () => {
+    const [ uploadFile ] = useMutation(UPLOAD_FILE, {
+        onCompleted: data => console.log(data)
+    })
 
-    }    
-    
-    const mostrarCambio = (event: React.ChangeEvent<HTMLInputElement>) =>{
-        const files = event.target.files;
-        if(files){
-            console.log(files[0]);         
-        }
+    const handleFileChange = (e:any) => {
+        const file = e.target.files[0];
+        if(!file) return 
+        uploadFile({ variables: { file }})
     }
+
+
 
     return (
         <Box>
-        <Box
-            textAlign='left'
-            mb={2}
-        >
-        Escoge una imagen para cargar:
-        </Box>
-        <form
-            onSubmit={sendImage} 
-        >
-        <Flex
-            align="center"
-            mr={5}
-        >
-            <Input 
-            mr={2}
-                type='file'
-                placeholder='Escoge una imagen para cargar'
-                onChange={mostrarCambio}
-            />
-            
-            <Button type='submit'>
-                Subir
-            </Button>      
-        </Flex>
-        </form>
+            <Box
+                textAlign='left'
+                mb={2}
+            >
+                Escoge una imagen para cargar:
+            </Box>
+                    <Input
+                        mr={2}
+                        type='file'
+                        placeholder='Escoge una imagen para cargar'
+                        onChange={handleFileChange}
+                    />
         </Box>
     )
 }
