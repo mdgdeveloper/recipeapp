@@ -38,6 +38,7 @@ export type Receta = {
 
 
 export type IngredienteForm = {
+    id: string,
     nombre: string;
     cantidad: number;
     peso: boolean;

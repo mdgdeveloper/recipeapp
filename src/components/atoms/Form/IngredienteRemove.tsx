@@ -17,6 +17,7 @@ const IngredienteRemove = ({ ingrediente, removeIngredient, editIngredient }: Pr
         const value: number = +event.target.value;
         setNumeric(value);
         const IngredienteToAdd: IngredienteForm ={
+            id: ingrediente.id,
             nombre: ingrediente.nombre,
             cantidad: parseInt(event.target.value),
             peso: pesoSelected
@@ -27,6 +28,7 @@ const IngredienteRemove = ({ ingrediente, removeIngredient, editIngredient }: Pr
     const handlePesoSelected = (event: React.ChangeEvent<HTMLSelectElement>) => {
         setPesoSelected(event.target.value === "unidades" ? false : true); 
         const IngredienteToAdd: IngredienteForm ={
+            id: ingrediente.id,
             nombre: ingrediente.nombre,
             cantidad: numeric,
             peso: event.target.value === "unidades" ? false : true

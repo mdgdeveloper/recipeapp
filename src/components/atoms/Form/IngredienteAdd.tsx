@@ -1,10 +1,13 @@
 import { ButtonGroup, Button } from '@chakra-ui/react';
 
 
+// Types Import
+import { IngredienteForm } from '../../../types/recetas';
+
 interface Props {
 
-    ingrediente: string;
-    addIngredientFromList: (ingrediente: string) => void;
+    ingrediente: IngredienteForm;
+    addIngredientFromList: (ingrediente: IngredienteForm) => void;
 
 }
 
@@ -19,7 +22,7 @@ const IngredienteAdd = ({ ingrediente, addIngredientFromList }: Props) => {
         size="sm" isAttached variant="outline" mr={3} mb={3}>
             <Button bg='blue.300' mr="-px"
             onClick={addIngredient}
-            >{ingrediente}</Button>
+            >{ingrediente.nombre}</Button>
         </ButtonGroup>
     )
 }

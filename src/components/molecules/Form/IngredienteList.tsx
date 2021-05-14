@@ -2,23 +2,22 @@ import { useState, useEffect } from 'react';
 import IngredienteAdd from '../../atoms/Form/IngredienteAdd';
 import { Flex } from '@chakra-ui/react';
 
+// Types to Import
+import { IngredienteForm } from '../../../types/recetas';
+
 interface Props {
-    lista: string[];
-    removeIngredientFromList: (ingredient: string) => void;
-    addIngredient: (ingrediente: string ) => void;
+    lista: IngredienteForm[];
+    removeIngredientFromList: (ingredient: IngredienteForm) => void;
+    addIngredient: (ingrediente: IngredienteForm ) => void;
 
 }
 
-
 const IngredienteList = ({ lista, addIngredient, removeIngredientFromList }: Props) => {
-        const addIngredientFromList = (ingredient: string) => {
+        const addIngredientFromList = (ingredient: IngredienteForm) => {
             removeIngredientFromList(ingredient);
             addIngredient(ingredient);
         
     }
-
-
-
     return (
         <Flex
         w='100%'

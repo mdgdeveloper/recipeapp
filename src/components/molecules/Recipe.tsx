@@ -19,6 +19,11 @@ interface Props {
 }
 
 const Recipe = ({ receta }: Props) => {
+
+    if(!receta.imagen.includes('http')){
+        const newReceta = `http://localhost:4000/images/${receta.imagen}`
+        receta = {...receta, imagen: newReceta};
+    }
     return (
 
         <Flex

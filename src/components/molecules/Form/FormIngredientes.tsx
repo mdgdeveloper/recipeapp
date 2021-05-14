@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 import IngredienteList from './IngredienteList';
 import IngredienteListAdded from './IngredienteListAdded';
@@ -6,6 +6,20 @@ import { IngredienteForm } from '../../../types/recetas';
 import { Box, Input } from '@chakra-ui/react';
 
 // Atoms for each element
+
+// GraphQL services
+import { useQuery, gql } from '@apollo/client';
+
+
+const GET_ALL_INGREDIENTS = gql`
+query{
+    getAllIngredients{
+      id,
+      nombre,
+  } 
+}
+`
+
 interface Props {
     ingredientesAdded: IngredienteForm[] | undefined;
     setIngredientesAdded: (ingredientesAdded: IngredienteForm[]) => void;
@@ -14,13 +28,31 @@ interface Props {
 
 const FormIngredientes = ({ ingredientesAdded, setIngredientesAdded }: Props) => {
     const [ingredientToAdd, setIngredientToAdd] = useState<string>();
-    const [listaIngredientes, setListaIngredientes] = useState<string[]>(
-        ["sal", "azucar", "mayonesa", "harina", "macarrones", "tomate", "cebolla", "lechuga", "oregano"]
-    );
+    const [listaIngredientes, setListaIngredientes] = useState<IngredienteForm[]>();
     const [buscaIngrediente, setBuscaIngrediente] = useState<string>("");
 
+    const { loading, error, data } = useQuery(GET_ALL_INGREDIENTS);
 
-
+    useEffect(() => {
+        if(error){
+            console.log(`error`, error)
+        }else
+        {   
+            if(data){
+            console.log('ingredientes', data)
+            const initialIngredients : IngredienteForm[] = data.getAllIngredients.map( (ingrediente: any) => {
+                return({
+                    id: ingrediente.id,
+                    nombre: ingrediente.nombre,
+                    cantidad: 0,
+                    peso: false
+                })
+            } )
+            setListaIngredientes(initialIngredients);
+            }
+        }
+    }, [loading, error,data])
+   
 
     // Removes an ingredient from the list of ingredientes added
     const removeIngredient = (ingredient: IngredienteForm) => {
@@ -30,32 +62,29 @@ const FormIngredientes = ({ ingredientesAdded, setIngredientesAdded }: Props) =>
             )
             setIngredientesAdded(newIngredientesAdded);
         }
-        const newLista = [...listaIngredientes, ingredient.nombre];
+        if(listaIngredientes){
+        const newLista = [...listaIngredientes, ingredient];
         setListaIngredientes(newLista);
+        }
     }
-
-
 
     // Removes an ingredient from list after adding it to added ingredients. 
-    const removeIngredientFromList = (ingredient: string) => {
+    const removeIngredientFromList = (ingredient: IngredienteForm) => {
+        if(listaIngredientes){
         const newLista = listaIngredientes.filter(elemento => elemento !== ingredient);
         setListaIngredientes(newLista);
-
+        }
     }
 
-    const addIngredient = (ingrediente: string) => {
+    const addIngredient = (ingrediente: IngredienteForm) => {
         if (ingredientToAdd !== ".")
             if (!ingredientesAdded) {
-                const newIngredient: IngredienteForm = {
-                    nombre: ingrediente,
-                    cantidad: 1,
-                    peso: false,
-                }
+                const newIngredient: IngredienteForm = ingrediente;
                 setIngredientesAdded([newIngredient]);
             } else {
                 let changed = false;
-                const auxIngrediente = ingredientesAdded.map((elemento: IngredienteForm) => {
-                    if (elemento.nombre === ingrediente) {
+                const auxIngrediente: IngredienteForm[] = ingredientesAdded.map((elemento: IngredienteForm) => {
+                    if (elemento.nombre === ingrediente.nombre) {
                         elemento.cantidad++;
                         changed = true;
                     }
@@ -63,11 +92,7 @@ const FormIngredientes = ({ ingredientesAdded, setIngredientesAdded }: Props) =>
                 })
 
                 if (!changed) {
-                    const newIngredient: IngredienteForm = {
-                        nombre: ingrediente,
-                        cantidad: 1,
-                        peso: false,
-                    }
+                    const newIngredient: IngredienteForm = ingrediente;
                     auxIngrediente.push(newIngredient);
                 }
                 setIngredientesAdded(auxIngrediente);
@@ -77,6 +102,7 @@ const FormIngredientes = ({ ingredientesAdded, setIngredientesAdded }: Props) =>
     const editIngredient = (ingrediente: IngredienteForm) => {
         if (ingredientesAdded) {
             const auxIngrediente: IngredienteForm[] = ingredientesAdded.map((elemento: IngredienteForm) => {
+                console.log('elemento', elemento)
                 if (elemento.nombre === ingrediente.nombre) {
                     elemento.cantidad = ingrediente.cantidad;
                     elemento.peso = ingrediente.peso;
@@ -101,12 +127,14 @@ return (
             mb={6}
             onChange={(event: React.ChangeEvent<HTMLInputElement>) => setBuscaIngrediente(event.target.value)}
         />
-
+        {listaIngredientes ? 
         <Box><IngredienteList
-            lista={listaIngredientes.filter(ingrediente => ingrediente.toLowerCase().includes(buscaIngrediente.toLowerCase()))}
+            lista={listaIngredientes.filter(ingrediente => ingrediente.nombre.toLowerCase().includes(buscaIngrediente.toLowerCase()))}
             addIngredient={addIngredient}
             removeIngredientFromList={removeIngredientFromList}
-        /></Box>
+        /></Box> 
+        :
+        <></> }
     </>
 )
 }
