@@ -37,7 +37,6 @@ const IngredienteRemove = ({ ingrediente, removeIngredient, editIngredient }: Pr
     }
 
     return (
-
         <Flex
             mb={2}
             mt={2}
@@ -49,7 +48,6 @@ const IngredienteRemove = ({ ingrediente, removeIngredient, editIngredient }: Pr
                 aria-label="Add ingredient" 
                 icon={<SmallCloseIcon />} />
             <Box mr={3} p={2} borderRadius={5} bg='green.300' fontWeight='bold'>{ingrediente.nombre}</Box>
-
             <Input w='10%' mr={3} onChange={handleNumericValue}/>
             <Select
                 w='20%'
@@ -58,11 +56,8 @@ const IngredienteRemove = ({ ingrediente, removeIngredient, editIngredient }: Pr
             >
                 <option value="peso" selected>gramos</option>
                 <option value="unidades">unidades</option>
-                
             </Select>
-
         </Flex>
-
     )
 }
 

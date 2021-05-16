@@ -131,6 +131,8 @@ return (
         <Box><IngredienteList
             lista={listaIngredientes.filter(ingrediente => ingrediente.nombre.toLowerCase().includes(buscaIngrediente.toLowerCase()))}
             addIngredient={addIngredient}
+            setListaIngredientes={setListaIngredientes}
+            listaIngredientes={listaIngredientes}
             removeIngredientFromList={removeIngredientFromList}
         /></Box> 
         :
