@@ -14,7 +14,7 @@ const TipoElement = ({ tipoValue, tipoSelected, setTipoSelected }: Props) => {
     const [style, setStyle] = useState<string>("blue");
    
    useEffect(()=>{
-        if(tipoSelected===tipoValue){
+        if(tipoSelected && tipoSelected.toLowerCase() === tipoValue.toLowerCase() ){
             setStyle('red');
         }else{
             setStyle('blue');

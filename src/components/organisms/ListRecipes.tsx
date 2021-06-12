@@ -3,6 +3,7 @@ import Recipe from '../molecules/Recipe';
 import { Receta } from '../../types/recetas';
 interface Props {
     listaRecetas: Receta[];
+    admin: boolean;
 }
 
 const ListRecipes = (props: Props) => {
@@ -10,7 +11,7 @@ const ListRecipes = (props: Props) => {
         <>
         {props.listaRecetas ? props.listaRecetas.map( (receta: Receta) => 
             (
-                <Recipe receta={receta}/>
+                <Recipe receta={receta} admin={props.admin} />
             )
             )
             : <></>}

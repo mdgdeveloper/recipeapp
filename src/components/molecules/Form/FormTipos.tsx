@@ -7,9 +7,10 @@ import ListaTipo from './ListaTipo';
 
 interface Props {
     setTipo: (tipo: Tipo) => void;
+    tipo?: Tipo;
 }
 
-const FormTipos = ({ setTipo }: Props) => {
+const FormTipos = ({ setTipo, tipo }: Props) => {
 
     return (
         <Flex
@@ -17,7 +18,7 @@ const FormTipos = ({ setTipo }: Props) => {
         flexDirection='column'
         textAlign='left'>
             <Box>Escoge tipo</Box>
-            <ListaTipo setTipo={setTipo}/>      
+            <ListaTipo setTipo={setTipo} tipo={tipo} />      
         </Flex>
     )
 }

@@ -1,14 +1,17 @@
 import { Flex } from '@chakra-ui/react';
 
 // ? ORGANISMS
-// import Header from '../organisms/Header';
+import Header from '../organisms/Header';
 
 interface Props {
+    setAdmin: (admin: boolean) => void; 
     children?: JSX.Element | string,
 }
 
-const LandingLayout = ({children}: Props) => {
+const LandingLayout = ({setAdmin, children}: Props) => {
     return (
+        <>
+        <Header setAdmin={setAdmin} />
         <Flex
             direction='column'
             align='center'
@@ -19,6 +22,7 @@ const LandingLayout = ({children}: Props) => {
             
             {children}
         </Flex>
+        </>
     )
 }
 

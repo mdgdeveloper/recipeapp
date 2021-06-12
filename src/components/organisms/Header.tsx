@@ -8,12 +8,11 @@ import MenuIcon from '../atoms/Header/MenuIcon';
 import MenuItem from '../atoms/Header/MenuItem';
 import CloseIcon from '../atoms/Header/CloseIcon';
 interface Props {
-
+    setAdmin: (admin: boolean) => void;
 }
 
 const Header = (props: Props) => {
     const [isOpen, setIsOpen] = useState<boolean>(false);
-
     const toggle = () => setIsOpen(!isOpen);
 
 
@@ -25,9 +24,9 @@ const Header = (props: Props) => {
             align='center'
             justify='space-between'
             wrap='wrap'
-            w='100%'      
+            w='100%'
             p={8}
-            bg={["green.500", "green.500", "green.500", "green.500"]}
+            bg={["#F1EEE7", "#F1EEE7", "#F1EEE7", "#F1EEE7"]}
         >
 
             <Flex align='center'>
@@ -52,23 +51,29 @@ const Header = (props: Props) => {
                     <MenuItem to="/how">How It works </MenuItem>
                     <MenuItem to="/add">Add </MenuItem>
                     <MenuItem to="/pricing">Pricing </MenuItem>
-                    <MenuItem to="/signup" isLast>
+                    <MenuItem to="/" isLast>
                         <Button
                             size="sm"
                             rounded="md"
-                            color={["green.500", "green.500", "white", "white"]}
-                            bg={["white", "white", "green.500", "green.500"]}
-                            _hover={{
-                                bg: ["primary.100", "primary.100", "primary.600", "primary.600"]
-                            }}
+                            color={["black", "black", "black", "black"]}
+                            bg={["black", "black", "#F1EEE7", "#F1EEE7"]}
                         >
                             Create Account
                         </Button>
                     </MenuItem>
+                    <Button
+                        size="sm"
+                        rounded="md"
+                        color={["black", "black", "black", "black"]}
+                        bg={["black", "black", "#F1EEE7", "#F1EEE7"]}
+                        onClick={() => props.setAdmin(true)}
+
+                    >
+                        Admin
+                    </Button>
                 </Flex>
             </Box>
         </Flex>
-
     )
 }
 

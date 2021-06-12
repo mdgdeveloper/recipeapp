@@ -5,11 +5,13 @@ import {useState, useEffect} from 'react';
 
 interface Props {
     setTipo: (tipos:Tipo) => void;
+    tipo?: Tipo;
 
 }
 
-const ListaTipo = ({ setTipo }: Props) => {
-    const [tipoSelected, setTipoSelected] = useState<Tipo>();
+const ListaTipo = ({ setTipo, tipo }: Props) => {
+    const [tipoSelected, setTipoSelected] = useState<Tipo>();  
+
 
     const ListaTipos: Tipo[] = [];
     for (let value in Tipo) {
@@ -18,8 +20,13 @@ const ListaTipo = ({ setTipo }: Props) => {
     }
 
     useEffect(()=>{
-        if(tipoSelected) setTipo(tipoSelected)
-    },[tipoSelected, setTipo])
+        if(tipoSelected){
+             setTipo(tipoSelected)
+        }else{ 
+            console.log('tipo', tipo)
+            if(tipo) setTipoSelected(tipo);
+        }
+    },[tipoSelected, setTipo, tipo])
 
     return (
         <Flex

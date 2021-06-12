@@ -3,14 +3,15 @@ import { FaRegClock } from 'react-icons/fa';
 
 interface Props {
     setTiempo: (tiempo: number) => void;
+    tiempo?: number;
     
 }
 
-const FormTiempo = ({ setTiempo}: Props) => {
+const FormTiempo = ({ tiempo, setTiempo}: Props) => {
     return (
 <InputGroup>
 <InputLeftAddon children={<Icon as={FaRegClock} color='gray.400'/> } />
-<Input placeholder="tiempo" 
+<Input defaultValue={tiempo}
     onChange={(event)=>setTiempo(parseInt(event.target.value))}
 />
 <InputRightAddon children="minutos" />

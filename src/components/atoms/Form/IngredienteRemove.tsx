@@ -10,6 +10,7 @@ interface Props {
 }
 
 const IngredienteRemove = ({ ingrediente, removeIngredient, editIngredient }: Props) => {
+    const [actualPeso, setActualPeso] = useState<boolean>(ingrediente.peso);
     const [numeric, setNumeric] = useState<number>(0);
     const [pesoSelected, setPesoSelected] = useState<boolean>(true);
 
@@ -48,14 +49,14 @@ const IngredienteRemove = ({ ingrediente, removeIngredient, editIngredient }: Pr
                 aria-label="Add ingredient" 
                 icon={<SmallCloseIcon />} />
             <Box mr={3} p={2} borderRadius={5} bg='green.300' fontWeight='bold'>{ingrediente.nombre}</Box>
-            <Input w='10%' mr={3} onChange={handleNumericValue}/>
+            <Input w='20%' mr={3} onChange={handleNumericValue} defaultValue={ingrediente.cantidad}/>
             <Select
                 w='20%'
                 mr={2}
                 onChange={handlePesoSelected}
             >
-                <option value="peso" selected>gramos</option>
-                <option value="unidades">unidades</option>
+                <option value="peso" selected={actualPeso}>gramos</option>
+                <option value="unidades" selected={!actualPeso}>unidades</option>
             </Select>
         </Flex>
     )

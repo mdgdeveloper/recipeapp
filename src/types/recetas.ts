@@ -9,7 +9,9 @@ export enum Tipo {
 }
 
 export type IngredienteType = {
+ 
     ingrediente: {
+        id?: string,
         nombre: string,
         cal: number,
         precioUnidad: boolean,

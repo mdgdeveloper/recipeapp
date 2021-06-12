@@ -3,10 +3,10 @@ import Entrada from '../../atoms/Form/Entrada';
 
 interface Props {
     setNombre: (nombre: string) => void;
-    
+    nombre?: string; 
 }
 
-const FormNombre = ({ setNombre }: Props) => {
+const FormNombre = ({ setNombre, nombre }: Props) => {
     return (
         <Flex
         flexDirection='column'
@@ -14,7 +14,7 @@ const FormNombre = ({ setNombre }: Props) => {
         w='100%'
         >
             <Box>Nombre</Box>
-            <Entrada setNombre={setNombre}/>
+            <Entrada setNombre={setNombre} nombre={nombre}/>
             
         </Flex>
     )

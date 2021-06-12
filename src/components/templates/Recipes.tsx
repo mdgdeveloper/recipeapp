@@ -18,6 +18,7 @@ query{
       pasos,
       ingredientes{
               ingrediente{
+                id
           nombre
         },
         cantidad,
@@ -33,6 +34,7 @@ query{
 `
 
 interface Props {
+  admin: boolean;
 
 }
 
@@ -48,7 +50,7 @@ const Recipes = (props: Props) => {
     return (
         <>
         { loading ? <div>Loading</div> :
-            <ListRecipes listaRecetas={data.getAllRecipes}/>
+            <ListRecipes listaRecetas={data.getAllRecipes} admin={props.admin}/>
         }
         </>
             
